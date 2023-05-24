@@ -27,16 +27,16 @@ const WorkoutTracker = ({ navigation, props }) => {
             <Header screenName="Tracker"/>
             
             <View style={styles.body}>
-                <Text style={ {fontSize: 30, fontWeight: '600'}}>Tracker</Text>
-                
+
                 <TouchableOpacity
+                    style = {styles.addExerciseButton}
                     onPress={handlePress}
                 >
-                    <Text>Add new exercise</Text>
+                    <Text style={styles.addExerciseButtonText}>Add new exercise</Text>
                 </TouchableOpacity>
 
                 {isVisible && (
-                    <View styles={styles.userInputSection}>
+                    <View style={styles.userInputSection}>
                         {/*  Some of these are def not right, maybe make new hooks in here? */}
                         <TextInput
                             style={styles.userInput}
@@ -67,13 +67,16 @@ const WorkoutTracker = ({ navigation, props }) => {
                         />
 
                         <TouchableOpacity
+                            style={styles.submitButton}
                             onPress={handleSubmit}
                         >
-                            <Text>Submit</Text>
+                            <Text style={styles.submitButtonText}>Submit</Text>
                         </TouchableOpacity>
                     
                     </View>
                 )}
+
+                
 
             </View>
 
@@ -90,14 +93,69 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: 13,       // in order for header/footer to have constant height, body must be flex 13
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
 
         borderWidth: 3,
         borderColor: 'red',
+
+        paddingTop: 10,
     },
-    footer: {
-        flex: 1
+    addExerciseButton: {
+        borderWidth: 3,
+        borderColor: 'purple',
+
+        margin: 5, 
+        padding: 10,
+        width: '95%',
+
+        alignItems: 'center',
+
+        backgroundColor: '#eaeaea',
+
+        borderRadius: 10,
+        
+    },
+    addExerciseButtonText:{
+        fontSize: 20,
+        fontWeight: '500',
+    },  
+    userInputSection: {
+        borderWidth: 3,
+        borderColor: 'blue',
+
+        borderRadius: 10,
+        width: '95%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+
+    },
+    userInput: {
+        borderWidth: 3,
+        borderColor: 'green',
+        paddingVertical: 5,
+        paddingLeft: 10,
+        width: '90%',
+        height: 50,
+        marginBottom: 10,
+        marginTop: 10,
+        borderRadius: 10,
+    },
+    submitButton: {
+        borderWidth: 3,
+        borderColor: 'green',
+        paddingVertical: 5,
+        width: '90%',
+        height: 50,
+        marginBottom: 10,
+        marginTop: 10,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    submitButtonText: {
+        fontSize: 20,
+        fontWeight: '500',
     }
 
 })
