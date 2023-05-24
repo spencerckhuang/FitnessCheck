@@ -4,6 +4,8 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'r
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import ExerciseLogList from '../components/ExerciseLogList';
+
 const WorkoutTracker = ({ navigation, props }) => {
 
     const [isVisible, setIsVisible] = useState(false);
@@ -76,7 +78,9 @@ const WorkoutTracker = ({ navigation, props }) => {
                     </View>
                 )}
 
-                
+                <ExerciseLogList />
+
+
 
             </View>
 
@@ -114,7 +118,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#eaeaea',
 
         borderRadius: 10,
-        
     },
     addExerciseButtonText:{
         fontSize: 20,
@@ -123,7 +126,7 @@ const styles = StyleSheet.create({
     userInputSection: {
         borderWidth: 3,
         borderColor: 'blue',
-
+        marginTop: 5,
         borderRadius: 10,
         width: '95%',
         alignItems: 'center',
