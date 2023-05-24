@@ -18,3 +18,5 @@ Please reach out to shuan126@jh.edu for any inquiries!
 I started this project a few days ago but uploaded it to GH for the first time today. I have so far continued working on the general layout 
 of the application, adding necessary screens, views, and buttons.
 * Added WorkoutTracker screen. This is the screen that users would see during their workout to input data about exercise/weight/sets/reps.
+* Added ExerciseLogList and LoggedExercise components. These are components that the user would see while completing a workout. They are meant to show the user what exercises they have already 
+logged during the session.
