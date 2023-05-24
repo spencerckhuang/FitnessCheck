@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 
 const WorkoutTracker = ({ navigation, props }) => {
 
-
     return (
         <View style={styles.screen}>
             <Header screenName="Tracker"/>
@@ -15,9 +14,9 @@ const WorkoutTracker = ({ navigation, props }) => {
                 <Text style={ {fontSize: 30, fontWeight: '600'}}>Tracker</Text>
             </View>
 
-            <View>
+            {/* <View>
                 <Text>Day of workout: {props.date}</Text>
-            </View>
+            </View> */}
 
             <Footer navigation={navigation}/>
         </View>
@@ -31,7 +30,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     body: {
-        flex: 12,
+        flex: 13,       // in order for header/footer to have constant height, body must be flex 13
         justifyContent: 'center',
         alignItems: 'center',
     },

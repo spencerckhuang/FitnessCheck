@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     body: {
-        flex: 12,
+        flex: 13,       // in order for header/footer to have constant height, body must be flex 13
         justifyContent: 'center',
         alignItems: 'center',
     },

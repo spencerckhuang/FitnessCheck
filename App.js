@@ -5,6 +5,7 @@ import 'react-native-gesture-handler';
 
 import Home from './src/screens/Home';
 import ChosenDay from './src/screens/ChosenDay';
+import WorkoutTracker from './src/screens/WorkoutTracker'
 
 const Stack = createNativeStackNavigator();
 

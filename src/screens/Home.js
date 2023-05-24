@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
     },
+    // in order for header/footer to have constant height, body must be flex 13
     welcome: {
         flex: 1,
         paddingTop: 20,
