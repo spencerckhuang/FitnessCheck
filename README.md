@@ -14,6 +14,15 @@ Please reach out to shuan126@jh.edu for any inquiries!
 
 ## Most recent developments
 
+### 5/29:
+Spent a lot of time on the WorkoutTracker.
+* Added functionality to the "Add new exercise" button. Made it possible to store
+saved workouts to a local list of Objects. Was then able to render that list into LoggedExercise
+components.
+* Took care of some smaller stylistic details, such as clearing the TextInputs after submitting an exericse.
+* Next step is probably to figure out how to use a database to save whole "workouts". Planning on using Firebase. This is a pretty big step though...
+* While I'm not doing that, I may work on input filtration for the "add new exercise" feature
+
 ### 5/24:
 I started this project a few days ago but uploaded it to GH for the first time today. I have so far continued working on the general layout 
 of the application, adding necessary screens, views, and buttons.
