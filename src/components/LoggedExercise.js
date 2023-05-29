@@ -1,16 +1,16 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 
-const LoggedExercise = () => { 
+const LoggedExercise = ( {exercise} ) => { 
     return (
         <View style={styles.logListContainer}>
             { /* <Text>LoggedExercise</Text> */ }
             <View style={styles.exerciseNameContainer}>
-                <Text style={styles.exerciseNameText}>Back Squat</Text>
+                <Text style={styles.exerciseNameText}>{exercise.exerciseName}</Text>
             </View>
 
             <View style={styles.exerciseDataContainer}>
-                <Text style={styles.exerciseDataText}>245lb, 3 sets: 8, 8, 7</Text>
+                <Text style={styles.exerciseDataText}>{exercise.weight}, {exercise.sets} sets of {exercise.reps} reps</Text>
             </View>
         </View>
     )

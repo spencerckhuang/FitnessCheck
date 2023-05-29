@@ -1,29 +1,36 @@
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, FlatList } from 'react-native';
 import React from 'react';
 
 import LoggedExercise from '../components/LoggedExercise';
 
-const ExerciseLogList = () => { 
+const ExerciseLogList = ( {exerciseLog} ) => { 
+
+
+    const renderItem = ({ item }) => {
+        console.log("Rendering item!"); 
+        return <LoggedExercise exercise={item} />;
+    };
+
     return (
-        <ScrollView contentContainerStyle={styles.logListContainer} style={styles.logListStyle}>
-            <Text>ExerciseLogList</Text>
-            <LoggedExercise />
-        </ScrollView>
-    )
+        <FlatList 
+            style={styles.logListContainer}
+            data={exerciseLog}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => index.toString()}
+        />
+    );
+
 }
 
 const styles=StyleSheet.create({
     logListContainer: {
         borderWidth: 3,
         borderColor: 'pink',
-        alignItems: 'center',
         borderRadius: 10,
         padding: 10,
         marginVertical: 10,
         flex: 1,
-    }, 
-    logListStyle: {
-        width: '95%',  
+        width: "95%",
     }
 });
 

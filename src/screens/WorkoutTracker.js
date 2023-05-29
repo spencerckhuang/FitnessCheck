@@ -5,22 +5,40 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import ExerciseLogList from '../components/ExerciseLogList';
+import LoggedExercise from '../components/LoggedExercise';
 
 const WorkoutTracker = ({ navigation, props }) => {
 
     const [isVisible, setIsVisible] = useState(false);
+
+    const [exerciseLog, setExerciseLog] = useState([]); // array of objects, each object is an exercise
 
     const [exerciseName, setExerciseName] = useState('');
     const [weight, setWeight] = useState('');
     const [sets, setSets] = useState('');
     const [reps, setReps] = useState('');
 
+
+
     const handlePress = () => {  // handle press of add new exercise button
         setIsVisible(true);
     };
 
+    const handlePressEndWorkout = () => {  // handle press of end workout button
+        // TODO 
+    };
+
     const handleSubmit = () => { // handle submit after user enters data
-        // TODO
+        // TODO: add exercise data to exerciseLog
+        const newExercise = {
+            exerciseName: exerciseName,
+            weight: weight,
+            sets: sets,
+            reps: reps,
+          };
+        setExerciseLog([...exerciseLog, newExercise]);
+        // console.log("exercise log: ", exerciseLog);
+        setIsVisible(false);
     };
 
 
@@ -78,7 +96,14 @@ const WorkoutTracker = ({ navigation, props }) => {
                     </View>
                 )}
 
-                <ExerciseLogList />
+                <ExerciseLogList exerciseLog={exerciseLog}/>
+
+                <TouchableOpacity
+                    style = {styles.endWorkoutButton}
+                    onPress={handlePressEndWorkout}
+                >
+                    <Text style={styles.endWorkoutButtonText}>End workout</Text>
+                </TouchableOpacity>
 
 
 
@@ -123,6 +148,24 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '500',
     },  
+    endWorkoutButton: {
+        borderWidth: 3,
+        borderColor: 'purple',
+
+        margin: 5, 
+        padding: 10,
+        width: '95%',
+
+        alignItems: 'center',
+
+        backgroundColor: '#eaeaea',
+
+        borderRadius: 10,
+    },
+    endWorkoutButtonText: {
+        fontSize: 20,
+        fontWeight: '500',
+    },
     userInputSection: {
         borderWidth: 3,
         borderColor: 'blue',
