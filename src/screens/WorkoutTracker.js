@@ -21,7 +21,7 @@ const WorkoutTracker = ({ navigation, props }) => {
 
 
     const handlePress = () => {  // handle press of add new exercise button
-        setIsVisible(true);
+        setIsVisible(isVisible ? false : true);
     };
 
     const handlePressEndWorkout = () => {  // handle press of end workout button
@@ -37,7 +37,10 @@ const WorkoutTracker = ({ navigation, props }) => {
             reps: reps,
           };
         setExerciseLog([...exerciseLog, newExercise]);
-        // console.log("exercise log: ", exerciseLog);
+        setExerciseName("");
+        setWeight("");
+        setSets("");
+        setReps("");
         setIsVisible(false);
     };
 

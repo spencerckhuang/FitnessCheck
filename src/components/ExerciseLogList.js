@@ -7,7 +7,7 @@ const ExerciseLogList = ( {exerciseLog} ) => {
 
 
     const renderItem = ({ item }) => {
-        console.log("Rendering item!"); 
+        // console.log("Rendering item!"); 
         return <LoggedExercise exercise={item} />;
     };
 
