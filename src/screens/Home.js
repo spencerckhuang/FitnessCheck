@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderColor: 'blue',
         padding: 5,
+        borderRadius: 10,
     }, 
     body: {
         flex: 12,
@@ -117,12 +118,14 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderColor: 'purple',
         width: '100%',
+        borderRadius: 10,
+        marginBottom: 5,
     }, 
     task: {
         backgroundColor: 'white',
         padding: 10,
         margin: 10,
-        borderRadius: 12,
+        borderRadius: 10,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -136,10 +139,12 @@ const styles = StyleSheet.create({
     userEntrySpace: {
         borderWidth: 3,
         borderColor: 'pink',
+        backgroundColor: "#f2f2f2",
         width: '100%',
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
+        borderRadius: 10,
     }
 
 })
