@@ -1,14 +1,24 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-const LoggedExercise = ( {workoutData} ) => { 
+const LoggedExercise = ( {navigation, workoutData, GlobalState} ) => { 
+
+    const { setChosenWorkout } = GlobalState;
+
+    const handlePress = () => {
+        setChosenWorkout(workoutData);
+        navigation.navigate("ChosenDay");
+    };
+
     return (
         <View style={styles.logListContainer}>
-            <View>
+            <TouchableOpacity
+                onPress={handlePress}
+            >
                 <Text style={styles.workoutDateText}>{workoutData.date}</Text>
                 <Text style={styles.workoutDateText}>{workoutData.id}</Text>
 
-            </View>
+            </TouchableOpacity>
         </View>
     )
 }

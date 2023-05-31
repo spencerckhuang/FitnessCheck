@@ -3,16 +3,22 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'r
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ExerciseLogList from '../components/ExerciseLogList';
 
-const ChosenDay = ({ navigation, props }) => {
-
+const ChosenDay = ({ navigation, GlobalState }) => {
+    const { chosenWorkout } = GlobalState;
 
     return (
         <View style={styles.screen}>
             <Header screenName="Chosen Day"/>
             
             <View style={styles.body}>
-                <Text style={ {fontSize: 30, fontWeight: '600'}}>Chosen Day!</Text>
+                <Text style={ {fontSize: 22, fontWeight: '400'}}>Date: {chosenWorkout.date}</Text>
+                <Text style={ {fontSize: 22, fontWeight: '400'}}>ID: {chosenWorkout.id}</Text>
+
+                <ExerciseLogList exerciseLog={chosenWorkout.exercises}/>
+
+
             </View>
 
             {/* <View>
@@ -31,8 +37,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     body: {
+        borderColor: 'red',
+        borderWidth: 3,
+        padding: 10,
+
         flex: 13,       // in order for header/footer to have constant height, body must be flex 13
-        justifyContent: 'center',
         alignItems: 'center',
     },
     footer: {

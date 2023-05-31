@@ -9,7 +9,7 @@ const WorkoutLogList = ( { navigation, GlobalState } ) => {
     const renderItem = ({ item }) => {
         // console.log("Rendering item!"); 
         if (item) {
-            return <LoggedWorkout workoutData={item} />;
+            return <LoggedWorkout navigation={navigation} workoutData={item} GlobalState={GlobalState}/>;
         } else {
             return <Text>Nothing to see here!</Text>
         }

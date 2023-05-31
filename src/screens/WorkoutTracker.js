@@ -24,7 +24,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
         const newWorkout = {
             date: new Date().toLocaleDateString(),
             id: currentWorkoutID,
-            exercises: [...exerciseLog],
+            exercises: exerciseLog,
         };
         setCurrentWorkoutID(prevID => prevID + 1);
         setWorkoutLog([...workoutLog, newWorkout]);
