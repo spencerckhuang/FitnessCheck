@@ -14,19 +14,14 @@ export default function App() {
   const [singleWorkout, setSingleWorkout] = useState([{id: 1, lift: "Bench press", sets: 3, reps: 8}]); // "this is the state that we are going to be using to store a single workout"
   const [chosenWorkout, setChosenWorkout] = useState(null); // "this is the state that we are going to be using to store the chosen workout" 
   const [chosenLift, setChosenLift] = useState(null);
-
-  const [exerciseName, setExerciseName] = useState(null);
-  const [sets, setSets] = useState(null);
-  const [reps, setReps] = useState(null);
+  const [currentWorkoutID, setCurrentWorkoutID] = useState(1); // "this is the state that we are going to be using to store the current workout ID" [1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
   const GlobalState = {
-    workoutLog: setWorkoutLog,
-    singleWorkout: setSingleWorkout,
-    chosenWorkout: setChosenWorkout,
-    chosenLift: setChosenLift,
-    exerciseName: setExerciseName,
-    sets: setSets,
-    reps: setReps
+    workoutLog, setWorkoutLog,
+    singleWorkout, setSingleWorkout,
+    chosenWorkout, setChosenWorkout,
+    chosenLift, setChosenLift,
+    currentWorkoutID, setCurrentWorkoutID, // Pass the setter function
   }
 
   return (

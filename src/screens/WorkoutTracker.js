@@ -5,31 +5,33 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import ExerciseLogList from '../components/ExerciseLogList';
-import LoggedExercise from '../components/LoggedExercise';
 
-const WorkoutTracker = ({ navigation, props }) => {
+const WorkoutTracker = ({ navigation, GlobalState }) => {
+    const { workoutLog, setWorkoutLog, currentWorkoutID, setCurrentWorkoutID } = GlobalState;
 
     const [isVisible, setIsVisible] = useState(false);
-
     const [exerciseLog, setExerciseLog] = useState([]); // array of objects, each object is an exercise
-
     const [exerciseName, setExerciseName] = useState('');
     const [weight, setWeight] = useState('');
     const [sets, setSets] = useState('');
     const [reps, setReps] = useState('');
-
-
 
     const handlePress = () => {  // handle press of add new exercise button
         setIsVisible(isVisible ? false : true);
     };
 
     const handlePressEndWorkout = () => {  // handle press of end workout button
-        // TODO 
+        const newWorkout = {
+            date: new Date().toLocaleDateString(),
+            id: currentWorkoutID,
+            exercises: [...exerciseLog],
+        };
+        setCurrentWorkoutID(prevID => prevID + 1);
+        setWorkoutLog([...workoutLog, newWorkout]);
+        navigation.navigate("Home");
     };
 
     const handleSubmit = () => { // handle submit after user enters data
-        // TODO: add exercise data to exerciseLog
         const newExercise = {
             exerciseName: exerciseName,
             weight: weight,

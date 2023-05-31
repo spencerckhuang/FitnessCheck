@@ -3,8 +3,8 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollVi
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import WorkoutLog from '../components/WorkoutLog';
 import SingleWorkout from '../components/SingleWorkout';
+import WorkoutLogList from '../components/WorkoutLogList';
 
 const name = "Spencer"; // temporary
 
@@ -12,27 +12,10 @@ const Home = ({ navigation, GlobalState }) => {
 
     const { exerciseName, setExerciseName, workoutLog } = GlobalState;
 
-    // each 'item' is an individual workout
-    const renderItem = ({item}) => {
-        if (item && item.id) {
-            return (
-                <SingleWorkout id={item.id} date={item.date} handleFunc={handleChosenWorkout} />
-            )
-        } else {
-            return (
-                <Text>Nothing to display</Text>
-            )
-        }
-        
-    }
-
     const handleChosenWorkout = (item) => {
         setChosenWorkout(item);
         navigation.navigate('ChosenDay', {item: item});
     }
-
-    
-
 
     return (
         <View style={styles.screen}>
@@ -46,13 +29,8 @@ const Home = ({ navigation, GlobalState }) => {
 
                 <Text style={styles.listHeader}>Your last workout was on (insert date!)</Text>
 
-                <FlatList
-                    style={styles.list}
-                    data={workoutLog}
-                    renderItem={renderItem}
-                    //keyExtractor={item => item.id}
-                >
-                </FlatList>
+
+                <WorkoutLogList navigation={navigation} GlobalState={GlobalState}/>
 
                 <View style={styles.userEntrySpace}>
                     <TouchableOpacity

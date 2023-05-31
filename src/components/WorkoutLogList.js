@@ -1,21 +1,26 @@
 import { View, ScrollView, Text, StyleSheet, FlatList } from 'react-native';
 import React from 'react';
 
-import LoggedExercise from '../components/LoggedExercise';
+import LoggedWorkout from '../components/LoggedWorkout';
 
-const ExerciseLogList = ( {exerciseLog} ) => { 
-
+const WorkoutLogList = ( { navigation, GlobalState } ) => { 
+    const { workoutLog } = GlobalState;
 
     const renderItem = ({ item }) => {
         // console.log("Rendering item!"); 
-        return <LoggedExercise exercise={item} />;
+        if (item) {
+            return <LoggedWorkout workoutData={item} />;
+        } else {
+            return <Text>Nothing to see here!</Text>
+        }
+        
     };
 
     return (
         <View style={styles.container}>
           <FlatList
             style={styles.logListContainer}
-            data={exerciseLog}
+            data={workoutLog}
             renderItem={renderItem}
             keyExtractor={(item, index) => index.toString()}
           />
@@ -27,11 +32,11 @@ const ExerciseLogList = ( {exerciseLog} ) => {
 const styles=StyleSheet.create({
     container: {
         flex: 1,
-        width: "95%",
+        width: "100%",
     }, 
     logListContainer: {
         borderWidth: 3,
-        borderColor: 'pink',
+        borderColor: 'purple',
         borderRadius: 10,
         padding: 10,
         marginVertical: 10,
@@ -39,4 +44,4 @@ const styles=StyleSheet.create({
 });
 
 
-export default ExerciseLogList;
+export default WorkoutLogList;
