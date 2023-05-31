@@ -34,7 +34,7 @@ const Home = ({ navigation, GlobalState }) => {
 
                 <View style={styles.userEntrySpace}>
                     <TouchableOpacity
-                        onPress={() => {navigation.navigate("WorkoutTracker")}}
+                        onPress={() => {navigation.navigate("TypeOfWorkout")}}
                     >
                         <Text>Start New Workout</Text>
                     </TouchableOpacity>

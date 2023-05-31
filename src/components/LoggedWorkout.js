@@ -26,7 +26,7 @@ const styles=StyleSheet.create({
     },
     workoutDateText: {
         fontSize: 20,
-        fontWeight: '600',
+        fontWeight: '400',
     },
 });
 

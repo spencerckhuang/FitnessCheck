@@ -5,7 +5,8 @@ import 'react-native-gesture-handler';
 
 import Home from './src/screens/Home';
 import ChosenDay from './src/screens/ChosenDay';
-import WorkoutTracker from './src/screens/WorkoutTracker'
+import WorkoutTracker from './src/screens/WorkoutTracker';
+import TypeOfWorkout from './src/screens/TypeOfWorkout';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,10 @@ export default function App() {
 
         <Stack.Screen name="WorkoutTracker" options = {{headerShown: false}}>
           {props => <WorkoutTracker {...props} GlobalState={GlobalState} />}
+        </Stack.Screen>
+
+        <Stack.Screen name="TypeOfWorkout" options = {{headerShown: false}}>
+          {props => <TypeOfWorkout {...props} GlobalState={GlobalState} />}
         </Stack.Screen>
 
 
