@@ -27,7 +27,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
             exercises: exerciseLog,
         };
         setCurrentWorkoutID(prevID => prevID + 1);
-        setWorkoutLog([...workoutLog, newWorkout]);
+        setWorkoutLog([newWorkout, ...workoutLog]);
         navigation.navigate("Home");
     };
 
