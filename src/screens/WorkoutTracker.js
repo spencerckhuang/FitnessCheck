@@ -21,6 +21,11 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
     };
 
     const handlePressEndWorkout = () => {  // handle press of end workout button
+        if (exerciseLog.length === 0) {
+            alert("You must add at least one exercise to your workout!");
+            return;
+        }
+        
         const newWorkout = {
             date: new Date().toLocaleDateString(),
             id: currentWorkoutID,
