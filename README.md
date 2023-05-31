@@ -33,7 +33,8 @@ Misc:
 
 ### 5/30:
 Working on the logging of individual day-by-day workouts (i.e. seeing a list of all your past workout sessions: the one a week ago, the one yesterday, the one you just finished today)
-* Created a currentWorkoutID state that updates (incremented by 1) every time a new workout is logged   
+* Created a currentWorkoutID state that updates (incremented by 1) every time a new workout is logged  
+ 
 Ideas for further development:
 * Re. display of workouts on homepage: Every workout should have a 'label' of sorts (i.e. push, pull, legs, etc.). This label should be displayed on the LoggedWorkout component. Additionally, the user could be able to choose a "featured exercise" every workout that would also be featured on the LoggedWorkout component. For example, in total, a user may finish a workout and see: the date, the workout ID, that the workout was a "leg day", and that the featured exercise was a 315lb one-rep-max back squat (the featured exercise would include all data from a single LoggedExercise).
 
