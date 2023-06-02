@@ -1,17 +1,23 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 
+import AntDesignIcon from 'react-native-vector-icons/AntDesign';
+
 const LoggedExercise = ( {exercise} ) => { 
     return (
         <View style={styles.logListContainer}>
-            { /* <Text>LoggedExercise</Text> */ }
-            <View style={styles.exerciseNameContainer}>
-                <Text style={styles.exerciseNameText}>{exercise.exerciseName}</Text>
+            <View style={styles.infoContainer}>
+                <View style={styles.exerciseNameContainer}>
+                    <Text style={styles.exerciseNameText}>{exercise.exerciseName}</Text>
+                </View>
+
+                <View style={styles.exerciseDataContainer}>
+                    <Text style={styles.exerciseDataText}>{exercise.weight}, {exercise.sets} sets of {exercise.reps} reps</Text>
+                </View>
             </View>
 
-            <View style={styles.exerciseDataContainer}>
-                <Text style={styles.exerciseDataText}>{exercise.weight}, {exercise.sets} sets of {exercise.reps} reps</Text>
-            </View>
+            <AntDesignIcon name="edit" size={30} color="black" style={styles.editIcon}/>
+            
         </View>
     )
 }
@@ -26,6 +32,24 @@ const styles=StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         marginVertical: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    infoContainer: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        //borderWidth: 3,
+        //borderColor: 'blue',
+        //borderRadius: 10,
+        flex: 9,
+    },
+    editIcon: {
+        //borderWidth: 3,
+        //borderColor: 'green',
+        flex: 1,
+        marginRight: 5,
+        //marginRight: 5,
+        //marginTop: 7,
     },
     exerciseNameContainer: {
         alignItems: 'flex-start',
