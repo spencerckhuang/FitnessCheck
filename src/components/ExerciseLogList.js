@@ -3,12 +3,12 @@ import React from 'react';
 
 import LoggedExercise from '../components/LoggedExercise';
 
-const ExerciseLogList = ( {exerciseLog} ) => { 
+const ExerciseLogList = ( {exerciseLog, handleEdit} ) => { 
 
 
     const renderItem = ({ item }) => {
         // console.log("Rendering item!"); 
-        return <LoggedExercise exercise={item} />;
+        return <LoggedExercise exercise={item} handleEdit={handleEdit}/>;
     };
 
     return (

@@ -3,7 +3,8 @@ import React from 'react';
 
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
-const LoggedExercise = ( {exercise} ) => { 
+const LoggedExercise = ( {exercise, handleEdit} ) => { 
+
     return (
         <View style={styles.logListContainer}>
             <View style={styles.infoContainer}>
@@ -16,7 +17,13 @@ const LoggedExercise = ( {exercise} ) => {
                 </View>
             </View>
 
-            <AntDesignIcon name="edit" size={30} color="black" style={styles.editIcon}/>
+            <AntDesignIcon 
+                name="edit" 
+                size={30} 
+                color="black" 
+                style={styles.editIcon}
+                onPress={() => handleEdit(exercise)}
+            />
             
         </View>
     )

@@ -25,7 +25,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
             alert("You must add at least one exercise to your workout!");
             return;
         }
-        
+
         const newWorkout = {
             date: new Date().toLocaleDateString(),
             id: currentWorkoutID,
@@ -49,6 +49,14 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
         setSets("");
         setReps("");
         setIsVisible(false);
+    };
+
+    const handleEdit = (exercise) => {
+        setExerciseName(exercise.exerciseName);
+        setWeight(exercise.weight);
+        setSets(exercise.sets);
+        setReps(exercise.reps);
+        setIsVisible(true);
     };
 
 
@@ -106,7 +114,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
                     </View>
                 )}
 
-                <ExerciseLogList exerciseLog={exerciseLog}/>
+                <ExerciseLogList exerciseLog={exerciseLog} handleEdit={handleEdit}/>
 
                 <TouchableOpacity
                     style = {styles.endWorkoutButton}
