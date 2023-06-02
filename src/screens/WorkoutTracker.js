@@ -11,10 +11,17 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
 
     const [isVisible, setIsVisible] = useState(false);
     const [exerciseLog, setExerciseLog] = useState([]); // array of objects, each object is an exercise
+
     const [exerciseName, setExerciseName] = useState('');
     const [weight, setWeight] = useState('');
     const [sets, setSets] = useState('');
     const [reps, setReps] = useState('');
+    const [exerciseID, setExerciseID] = useState(0);
+
+    const [editingMode, setEditingMode] = useState(false);
+
+    const [selectedExercise, setSelectedExercise] = useState(null);
+    
 
     const handlePress = () => {  // handle press of add new exercise button
         setIsVisible(isVisible ? false : true);
@@ -37,18 +44,33 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
     };
 
     const handleSubmit = () => { // handle submit after user enters data
+
         const newExercise = {
+            id: (editingMode ? selectedExercise : exerciseID),
             exerciseName: exerciseName,
             weight: weight,
             sets: sets,
             reps: reps,
-          };
-        setExerciseLog([...exerciseLog, newExercise]);
+        };
+
+        // Find index of specific object using findIndex method.    
+        // objIndex = myArray.findIndex((obj => obj.id == 1));
+
+        if (editingMode) {
+            const newExerciseLog = exerciseLog.map(exercise => selectedExercise === exercise.id ? newExercise : exercise);
+            setExerciseLog(newExerciseLog);
+        } else {
+            setExerciseLog([...exerciseLog, newExercise]);
+            setExerciseID(prevID => prevID + 1);
+        }
+
         setExerciseName("");
         setWeight("");
         setSets("");
         setReps("");
         setIsVisible(false);
+        setEditingMode(false);
+        
     };
 
     const handleEdit = (exercise) => {
@@ -56,6 +78,8 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
         setWeight(exercise.weight);
         setSets(exercise.sets);
         setReps(exercise.reps);
+        setEditingMode(true);
+        setSelectedExercise(exercise.id);
         setIsVisible(true);
     };
 
