@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Switch } from 'react-native';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -107,12 +107,24 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
                             value={exerciseName}
                         />
 
-                        <TextInput
-                            style={styles.userInput}
-                            placeholder="Enter weight"
-                            onChangeText={text => setWeight(text)}
-                            value={weight}
-                        />
+                        <View style={styles.userInputWeight}>
+                            <TextInput
+                                style={styles.userInputWeightInput}
+                                placeholder="Enter weight"
+                                onChangeText={text => setWeight(text)}
+                                value={weight}
+                            />
+                            <View
+                                style={styles.userInputWeightSwitchWrapper}>
+                                    <Switch 
+                                        
+                                    />
+                            </View>
+
+                            
+                            
+                        </View>
+                        
 
                         <TextInput
                             style={styles.userInput}
@@ -230,6 +242,28 @@ const styles = StyleSheet.create({
         marginTop: 10,
         borderRadius: 10,
     },
+    userInputWeight: {
+        flexDirection: 'row',
+        width: '90%',
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    userInputWeightInput: {
+        borderWidth: 3,
+        borderColor: 'green',
+        paddingVertical: 5,
+        paddingLeft: 10,
+        height: 50,
+        marginBottom: 10,
+        marginTop: 10,
+        borderRadius: 10,
+        width: '60%'
+    },
+    userInputWeightSwitchWrapper: {
+        width: '40%',
+        alignItems: 'center',
+    }, 
     submitButton: {
         borderWidth: 3,
         borderColor: 'green',
