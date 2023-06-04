@@ -121,6 +121,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
                                 placeholder="Enter weight"
                                 onChangeText={text => setWeight(text)}
                                 value={weight}
+                                keyboardType="numeric"
                             />
                             <View
                                 style={styles.userInputWeightSwitchWrapper}>
@@ -140,6 +141,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
                             placeholder="Enter sets"
                             onChangeText={text => setSets(text)}
                             value={sets}
+                            keyboardType="numeric"
                         />
 
                         <TextInput
@@ -147,6 +149,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
                             placeholder="Enter reps"
                             onChangeText={text => setReps(text)}
                             value={reps}
+                            keyboardType="numeric"
                         />
 
                         <TouchableOpacity
