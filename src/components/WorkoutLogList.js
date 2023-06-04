@@ -18,12 +18,12 @@ const WorkoutLogList = ( { navigation, GlobalState } ) => {
 
     return (
         <View style={styles.container}>
-          <FlatList
+            <FlatList
             style={styles.logListContainer}
             data={workoutLog}
             renderItem={renderItem}
             keyExtractor={(item, index) => index.toString()}
-          />
+            />
         </View>
     );
 

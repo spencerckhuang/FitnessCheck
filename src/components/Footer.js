@@ -21,7 +21,7 @@ const Footer = ({navigation}) => {
                 name="tasks"
                 size={iconSize}
                 color="#ffffff"
-                onPress={() => {navigation.navigate("ChosenDay")}}
+                onPress={() => {navigation.navigate("ExerciseManager")}}
             />
 
             <FeatherIcon
