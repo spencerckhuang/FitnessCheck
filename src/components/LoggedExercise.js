@@ -34,7 +34,7 @@ const styles=StyleSheet.create({
         borderWidth: 3,
         borderColor: 'red',
         backgroundColor: '#eaeaea',
-        width: '95%',  
+        width: '100%',  
         justifyContent: 'center',
         borderRadius: 10,
         padding: 10,
@@ -45,18 +45,11 @@ const styles=StyleSheet.create({
     infoContainer: {
         flexDirection: 'column',
         justifyContent: 'space-between',
-        //borderWidth: 3,
-        //borderColor: 'blue',
-        //borderRadius: 10,
         flex: 9,
     },
     editIcon: {
-        //borderWidth: 3,
-        //borderColor: 'green',
         flex: 1,
         marginRight: 5,
-        //marginRight: 5,
-        //marginTop: 7,
     },
     exerciseNameContainer: {
         alignItems: 'flex-start',
