@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, Touchable } from 'react-native';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -32,13 +32,12 @@ const Home = ({ navigation, GlobalState }) => {
 
                 <WorkoutLogList navigation={navigation} GlobalState={GlobalState}/>
 
-                <View style={styles.userEntrySpace}>
-                    <TouchableOpacity
-                        onPress={() => {navigation.navigate("TypeOfWorkout")}}
-                    >
+                <TouchableOpacity
+                    style={styles.userEntrySpace}
+                    onPress={() => {navigation.navigate("TypeOfWorkout")}}
+                >
                         <Text>Start New Workout</Text>
-                    </TouchableOpacity>
-                </View>
+                </TouchableOpacity>
 
             </View>
             
