@@ -13,7 +13,7 @@ const LoggedExercise = ( {exercise, handleEdit} ) => {
                 </View>
 
                 <View style={styles.exerciseDataContainer}>
-                    <Text style={styles.exerciseDataText}>{exercise.weight}, {exercise.sets} sets of {exercise.reps} reps</Text>
+                    <Text style={styles.exerciseDataText}>{exercise.weight}{exercise.weightUnits}, {exercise.sets} sets of {exercise.reps} reps</Text>
                 </View>
             </View>
 

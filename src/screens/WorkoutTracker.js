@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Switch } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Switch } from 'react-native-switch';
+import SwitchSelector from "react-native-switch-selector";
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -14,14 +16,14 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
 
     const [exerciseName, setExerciseName] = useState('');
     const [weight, setWeight] = useState('');
+    const [units, setUnits] = useState('lb'); 
     const [sets, setSets] = useState('');
     const [reps, setReps] = useState('');
     const [exerciseID, setExerciseID] = useState(0);
 
     const [editingMode, setEditingMode] = useState(false);
 
-    const [selectedExercise, setSelectedExercise] = useState(null);
-    
+    const [selectedExercise, setSelectedExercise] = useState(null);    
 
     const handlePress = () => {  // handle press of add new exercise button
         setIsVisible(isVisible ? false : true);
@@ -49,6 +51,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
             id: (editingMode ? selectedExercise : exerciseID),
             exerciseName: exerciseName,
             weight: weight,
+            weightUnits: units,
             sets: sets,
             reps: reps,
         };
@@ -83,6 +86,11 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
         setIsVisible(true);
     };
 
+    const switchOptions = [
+        {label: "lb", value: "lb"},
+        {label: "kg", value: "kg"},
+    ];
+
 
     return (
         <View style={styles.screen}>
@@ -116,12 +124,13 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
                             />
                             <View
                                 style={styles.userInputWeightSwitchWrapper}>
-                                    <Switch 
-                                        
+                                    <SwitchSelector 
+                                        styles={styles.unitsSwitch}
+                                        options={switchOptions}
+                                        initial={0}
+                                        onPress={value => setUnits(value)}
                                     />
                             </View>
-
-                            
                             
                         </View>
                         
@@ -258,7 +267,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         marginTop: 10,
         borderRadius: 10,
-        width: '60%'
+        width: '50%'
     },
     userInputWeightSwitchWrapper: {
         width: '40%',
