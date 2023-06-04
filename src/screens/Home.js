@@ -9,13 +9,7 @@ import WorkoutLogList from '../components/WorkoutLogList';
 const name = "Spencer"; // temporary
 
 const Home = ({ navigation, GlobalState }) => {
-
-    const { exerciseName, setExerciseName, workoutLog } = GlobalState;
-
-    const handleChosenWorkout = (item) => {
-        setChosenWorkout(item);
-        navigation.navigate('ChosenDay', {item: item});
-    }
+    const { workoutLog } = GlobalState;
 
     return (
         <View style={styles.screen}>
@@ -26,6 +20,14 @@ const Home = ({ navigation, GlobalState }) => {
             </View>
             
             <View style={styles.body}>        
+
+                {workoutLog.length == 0 ? (
+                    <Text> You have no workouts logged yet! </Text>
+                ) : workoutLog.length == 1 ? (
+                    <Text> You have 1 workout logged! </Text>
+                ) : (
+                    <Text> You have {workoutLog.length} workouts logged! </Text>
+                )}
 
                 <Text style={styles.listHeader}>Your last workout was on (insert date!)</Text>
 
