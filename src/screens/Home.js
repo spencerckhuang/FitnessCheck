@@ -24,13 +24,18 @@ const Home = ({ navigation, GlobalState }) => {
                 {workoutLog.length == 0 ? (
                     <Text> You have no workouts logged yet! </Text>
                 ) : workoutLog.length == 1 ? (
-                    <Text> You have 1 workout logged! </Text>
+                    <View style={styles.homepageListHeader}>
+                            <Text style={styles.homepageListHeaderText}> You have 1 workout logged! </Text>
+                            <Text style={styles.homepageListHeaderText}> Last workout: {workoutLog[0].date} </Text>
+                    </View>
+                
                 ) : (
-                    <Text> You have {workoutLog.length} workouts logged! </Text>
+                    <View style={styles.homepageListHeader}>
+                            <Text style={styles.homepageListHeaderText}> You have {workoutLog.length} workouts logged! </Text>
+                            <Text style={styles.homepageListHeaderText}> Last workout: {workoutLog[0].date} </Text>
+                    </View>
+                    
                 )}
-
-                <Text style={styles.listHeader}>Your last workout was on (insert date!)</Text>
-
 
                 <WorkoutLogList navigation={navigation} GlobalState={GlobalState}/>
 
@@ -124,6 +129,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
+    },
+
+    homepageListHeader: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    homepageListHeaderText: {
+        fontSize: 20,
+        fontWeight: '400',
+
     }
 
 })
