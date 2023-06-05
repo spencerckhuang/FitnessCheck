@@ -16,13 +16,30 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
             <View style={styles.body}>
                 
                 <View style={styles.workoutDayManager}>
-                    <Text>Area for creating 'workout days'</Text>
-                    <WorkoutTypeLog GlobalState={GlobalState} />
+                    <View style={styles.log}>
+                        <WorkoutTypeLog GlobalState={GlobalState} />
+                    </View>
+
+                    
+
+                    <TouchableOpacity style={styles.addButton}>
+                        <Text> Add Workout </Text>
+                    </TouchableOpacity>
+
                 </View>
 
                 <View style={styles.exerciseManager}>
-                    <Text>Area for creating 'exercises'</Text>
-                    <ExerciseTypeLog GlobalState={GlobalState} />
+
+                    <View style={styles.log} >
+                        <ExerciseTypeLog GlobalState={GlobalState} />
+                    </View>
+
+                    
+
+                    <TouchableOpacity style={styles.addButton}>
+                        <Text> Add Exercise </Text>
+                    </TouchableOpacity>
+
                 </View>
 
 
@@ -66,6 +83,20 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginTop: 5,
         marginBottom: 10,
+    },
+    log: {
+        flex: 8,
+
+        borderWidth: 3,
+        borderColor: 'red',
+        borderRadius: 10,
+    },
+
+    addButton: {
+        borderWidth: 3,
+        borderColor: 'blue',
+        flex: 2,
+        borderRadius: 10,
     }
     
 })
