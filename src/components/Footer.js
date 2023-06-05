@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 
 import EntypoIcon from 'react-native-vector-icons/Entypo';
@@ -10,26 +10,39 @@ const Footer = ({navigation}) => {
 
     return (
         <View style={styles.footer}>
-            <EntypoIcon 
-                name="home"
-                size={iconSize}
-                color="#ffffff"
+            <TouchableOpacity
                 onPress={() => {navigation.navigate("Home")}}
-            />
+                style={styles.iconStyle}
+            >
+                <EntypoIcon 
+                    name="home"
+                    size={iconSize}
+                    color="#ffffff"  
+                />
+            </TouchableOpacity>
 
-            <FontAwesomeIcon 
-                name="tasks"
-                size={iconSize}
-                color="#ffffff"
+            <TouchableOpacity
                 onPress={() => {navigation.navigate("ExerciseManager")}}
-            />
+                style={styles.iconStyle}
+            >
+                <FontAwesomeIcon 
+                    name="tasks"
+                    size={iconSize}
+                    color="#ffffff"
+                />
+            </TouchableOpacity>
 
-            <FeatherIcon
-                name="settings"
-                size={iconSize}
-                color="#ffffff"
-                onPress={() => {}}
-            />
+            <TouchableOpacity
+                onPress={() => {navigation.navigate("ExerciseManager")}}
+                style={styles.iconStyle}
+            >
+                <FeatherIcon
+                    name="settings"
+                    size={iconSize}
+                    color="#ffffff"
+                />
+            </TouchableOpacity>
+    
         </View>
     )
 }
@@ -59,6 +72,12 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 18,
         fontWeight: '900'
+    },
+    iconStyle: {
+        width: '33%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 
