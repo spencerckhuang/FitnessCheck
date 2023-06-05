@@ -4,7 +4,10 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'r
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const ExerciseManager = ({ navigation }) => {
+import WorkoutTypeLog from '../components/userCreatedComponents/WorkoutTypeLog';
+import ExerciseTypeLog from '../components/userCreatedComponents/ExerciseTypeLog';
+
+const ExerciseManager = ({ navigation, GlobalState }) => {
 
     return (
         <View style={styles.screen}>
@@ -14,12 +17,12 @@ const ExerciseManager = ({ navigation }) => {
                 
                 <View style={styles.workoutDayManager}>
                     <Text>Area for creating 'workout days'</Text>
-
-                    
+                    <WorkoutTypeLog GlobalState={GlobalState} />
                 </View>
 
                 <View style={styles.exerciseManager}>
                     <Text>Area for creating 'exercises'</Text>
+                    <ExerciseTypeLog GlobalState={GlobalState} />
                 </View>
 
 
