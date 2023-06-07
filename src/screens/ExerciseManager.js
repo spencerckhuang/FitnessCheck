@@ -26,6 +26,7 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
 
         setWorkoutDayLibrary([...workoutDayLibrary, {workoutType: workoutBeingAdded}]);
         setWorkoutBeingAdded("");
+        setAddingWorkout(false);
     }
 
     return (
