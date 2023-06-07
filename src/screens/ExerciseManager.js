@@ -11,8 +11,21 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
 
     const {workoutDayLibrary, setWorkoutDayLibrary} = GlobalState;
 
+    const [addingWorkout, setAddingWorkout] = useState(false);
+    const [workoutBeingAdded, setWorkoutBeingAdded] = useState("");
+
     const handleAddWorkout = () => {
-        setWorkoutDayLibrary([...workoutDayLibrary, {workoutType: "New Workout"}]);
+        setAddingWorkout(true);
+    }
+
+    const handleAddWorkoutSubmit = () => {
+        if (workoutBeingAdded == "") {
+            alert("Please enter a workout name!");
+            return;
+        } 
+
+        setWorkoutDayLibrary([...workoutDayLibrary, {workoutType: workoutBeingAdded}]);
+        setWorkoutBeingAdded("");
     }
 
     return (
@@ -38,6 +51,27 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
                         <Text> Add Workout </Text>
                     </TouchableOpacity>
 
+                    {
+                    addingWorkout && (
+                        <View style={styles.addModal}>
+                            <TextInput
+                                style={styles.addModalInput}
+                                onChangeText={text => setWorkoutBeingAdded(text)}
+                                placeholder="Enter Workout Name"
+                            >
+                                <Text> Add Workout </Text>
+                            </TextInput>
+
+                            <TouchableOpacity
+                                style={styles.addModalButton}
+                                onPress={() => {handleAddWorkoutSubmit()}}
+                            >
+                                <Text>Submit</Text>
+                            </TouchableOpacity>
+                        </View>  
+                    )
+                }
+
                 </View>
 
 
@@ -55,6 +89,8 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
                     </TouchableOpacity>
 
                 </View>
+
+                
 
 
             </View>
@@ -111,6 +147,29 @@ const styles = StyleSheet.create({
         borderColor: 'blue',
         flex: 2,
         borderRadius: 10,
+    },
+
+    addModal: {
+        borderWidth: 3,
+        borderColor: 'orange',
+        borderRadius: 10,
+
+        flexDirection: 'row',
+        height: 50,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    addModalInput: {
+        borderColor: 'black',
+        borderWidth: 3,
+        borderRadius: 10,
+        width: '70%',
+    },
+    addModalButton: {
+        borderColor: 'yellow',
+        borderWidth: 3,
+        borderRadius: 10,
+        width: '30%',
     }
     
 })
