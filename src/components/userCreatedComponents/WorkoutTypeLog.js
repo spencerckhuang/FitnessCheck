@@ -42,6 +42,7 @@ const styles=StyleSheet.create({
     },
     listContainer: {
         width: '100%',
+        
     }
 });
 

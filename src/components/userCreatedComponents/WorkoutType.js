@@ -19,6 +19,7 @@ const styles=StyleSheet.create({
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: 5,
     },
     containerText: {
         fontSize: 20,
