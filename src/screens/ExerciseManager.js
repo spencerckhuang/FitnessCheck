@@ -20,6 +20,8 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
             <Header screenName="Chosen Day"/>
             
             <View style={styles.body}>
+
+                
                 
                 <View style={styles.workoutDayManager}>
 
@@ -37,6 +39,8 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
                     </TouchableOpacity>
 
                 </View>
+
+
 
                 <View style={styles.exerciseManager}>
 
