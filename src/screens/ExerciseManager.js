@@ -59,9 +59,8 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
                                 style={styles.addModalInput}
                                 onChangeText={text => setWorkoutBeingAdded(text)}
                                 placeholder="Enter Workout Name"
-                            >
-                                <Text> Add Workout </Text>
-                            </TextInput>
+                                value={workoutBeingAdded}
+                            />
 
                             <TouchableOpacity
                                 style={styles.addModalButton}
@@ -165,6 +164,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderRadius: 10,
         width: '70%',
+        paddingLeft: 5,
     },
     addModalButton: {
         borderColor: 'yellow',
