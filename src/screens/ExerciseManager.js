@@ -9,6 +9,12 @@ import ExerciseTypeLog from '../components/userCreatedComponents/ExerciseTypeLog
 
 const ExerciseManager = ({ navigation, GlobalState }) => {
 
+    const {workoutDayLibrary, setWorkoutDayLibrary} = GlobalState;
+
+    const handleAddWorkout = () => {
+        setWorkoutDayLibrary([...workoutDayLibrary, {workoutType: "New Workout"}]);
+    }
+
     return (
         <View style={styles.screen}>
             <Header screenName="Chosen Day"/>
@@ -16,13 +22,17 @@ const ExerciseManager = ({ navigation, GlobalState }) => {
             <View style={styles.body}>
                 
                 <View style={styles.workoutDayManager}>
+
                     <View style={styles.log}>
                         <WorkoutTypeLog GlobalState={GlobalState} />
                     </View>
 
                     
 
-                    <TouchableOpacity style={styles.addButton}>
+                    <TouchableOpacity 
+                        style={styles.addButton}
+                        onPress={() => {handleAddWorkout()}}
+                    >
                         <Text> Add Workout </Text>
                     </TouchableOpacity>
 
