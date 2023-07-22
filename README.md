@@ -12,6 +12,7 @@ visualization features such as being able to display a line graph of a certain e
 
 Please reach out to shuan126@jh.edu for any inquiries!
 
+
 #### General To-do (updated periodically):
 Logging new workout:
 * Input filtration: Ensure that the user cannot input non-integer values for sets/reps
@@ -28,6 +29,10 @@ Misc:
 * Same idea but with types of days (i.e. push, pull, legs)
 * Maybe even types of types of days??? (i.e. hypertrophy, power, deload)
 * Hook up workout data to cloud-based database????
+
+
+Backend:
+* I want to attach a Django backend to this app
 
 ## Most recent developments
 
@@ -53,3 +58,6 @@ of the application, adding necessary screens, views, and buttons.
 * Added WorkoutTracker screen. This is the screen that users would see during their workout to input data about exercise/weight/sets/reps.
 * Added ExerciseLogList and LoggedExercise components. These are components that the user would see while completing a workout. They are meant to show the user what exercises they have already 
 logged during the session.
+
+
+"npx expo start" to run!
