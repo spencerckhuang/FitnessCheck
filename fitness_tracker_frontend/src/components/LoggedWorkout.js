@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-const LoggedExercise = ( {navigation, workoutData, GlobalState} ) => { 
+const LoggedWorkout = ( {navigation, workoutData, GlobalState} ) => { 
 
     const { setChosenWorkout } = GlobalState;
 
@@ -41,4 +41,4 @@ const styles=StyleSheet.create({
 });
 
 
-export default LoggedExercise;
+export default LoggedWorkout;

@@ -5,13 +5,45 @@ import EntypoIcon from 'react-native-vector-icons/Entypo';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
+const awaitServerResponse = async () => {
+    try {
+        const response = await fetch('http://127.0.0.1:3000/', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        });
+
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle the error appropriately or rethrow it if necessary
+        throw error;
+    }
+}
+
+
 const Footer = ({navigation}) => {
     const iconSize = 25;
+
+    const handleHomePress = async () => {
+        navigation.navigate("Home")
+
+        try {
+            const jsonObjectTest = await awaitServerResponse();
+            alert(jsonObjectTest["name"]);
+        } catch (error) {
+            console.error("Error fetching data, ", error);
+        }
+    }
+
+
 
     return (
         <View style={styles.footer}>
             <TouchableOpacity
-                onPress={() => {navigation.navigate("Home")}}
+                onPress={handleHomePress}
                 style={styles.iconStyle}
             >
                 <EntypoIcon 
