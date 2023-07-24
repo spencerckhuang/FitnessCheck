@@ -7,8 +7,17 @@ class ExerciseSerializer(serializers.ModelSerializer):
         fields = ('id', 'exerciseName', 'weight', 'units', 'sets', 'reps')
 
 class WorkoutSerializer(serializers.ModelSerializer):
-    exercises = ExerciseSerializer(many=True)
+    exerciseLog = ExerciseSerializer(many=True)
 
     class Meta:
         model = Workout
-        fields = ('date', 'workoutId', 'exercises')
+        fields = ('workoutId', 'date', 'exerciseLog')
+
+    def create(self, validated_data):
+        exercises_data = validated_data.pop('exerciseLog', [])
+        workout = Workout.objects.create(**validated_data)
+
+        for exercise_data in exercises_data:
+            Exercise.objects.create(workout=workout, **exercise_data)
+
+        return workout

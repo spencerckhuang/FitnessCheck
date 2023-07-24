@@ -38,6 +38,12 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
                 },
                 body: bodyJSON,
             });
+
+            if (!response.ok) {
+                // Handle error response here, throw an error or return a custom response
+                throw new Error(`Request failed with status ${response.status}`);
+            }
+
             return await response.json();
 
         } catch (error) {
@@ -53,9 +59,12 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
             return;
         }
 
+        const dateObj = new Date();
+        const formattedDate = `${dateObj.getFullYear()}-${(dateObj.getMonth() + 1).toString().padStart(2, '0')}-${dateObj.getDate().toString().padStart(2, '0')}`;
+
         const newWorkout = {
-            date: new Date().toLocaleDateString(),
-            id: currentWorkoutID,
+            date: formattedDate,
+            id: parseInt(currentWorkoutID),
             exercises: exerciseLog,
         };
 
@@ -66,18 +75,18 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
         for (let i = 0; i < exerciseLog.length; i++) {
             const { id, exerciseName, weight, units, sets, reps } = exerciseLog[i];
             exerciseLogJSON.push({
-                "id": id,
+                "id": parseInt(id),
                 "exerciseName": exerciseName,
-                "weight": weight,
+                "weight": parseFloat(weight),
                 "units": units,
-                "sets": sets,
-                "reps": reps
+                "sets": parseInt(sets),
+                "reps": parseInt(reps)
             });
         }
 
 
         const body = {
-            "id":newWorkout.id,
+            "workoutId":newWorkout.id,
             "date":newWorkout.date,
             "exerciseLog": exerciseLogJSON
         };
@@ -97,7 +106,7 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
             id: (editingMode ? selectedExercise : exerciseID),
             exerciseName: exerciseName,
             weight: weight,
-            weightUnits: units,
+            units: units,
             sets: sets,
             reps: reps,
         };

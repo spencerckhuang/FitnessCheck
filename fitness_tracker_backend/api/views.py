@@ -11,13 +11,19 @@ class FitnessCheckAPI(APIView):
     
     def post(self, request, format=None):
         workout_data = request.data
-        exercises_data = workout_data.pop('exerciseLog', []) # extract exercises from request data
+        exercises_data = workout_data.get('exerciseLog', []) # extract exercises from request data
+        
 
         workout_serializer = WorkoutSerializer(data=workout_data)
         if (workout_serializer.is_valid()):
             workout_instance = workout_serializer.save()
         else:
+            print("BAD WORKOUT REQUEST")
+            print(workout_serializer.errors)
+            print(workout_data)
             return Response(workout_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        
         
         # Create associated Exercise instances
         for exercise_data in exercises_data:
@@ -26,6 +32,7 @@ class FitnessCheckAPI(APIView):
             if (exercise_serializer.is_valid()):
                 exercise_serializer.save()
             else:
+                print ("BAD EXERCISE REQUEST")
                 return Response(exercise_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
         return Response(workout_serializer.data, status=status.HTTP_201_CREATED)
