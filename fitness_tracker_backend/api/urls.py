@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import FitnessCheckAPI
 
 urlpatterns = [
-    path('', views.getData),
+    path('api/workouts/', FitnessCheckAPI.as_view(), name="fitness-check")
 ]

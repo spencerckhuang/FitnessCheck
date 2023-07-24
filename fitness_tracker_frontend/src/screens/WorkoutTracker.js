@@ -26,8 +26,28 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
     const [selectedExercise, setSelectedExercise] = useState(null);    
 
     const handlePress = () => {  // handle press of add new exercise button
-        setIsVisible(isVisible ? false : true);
+        setIsVisible(!isVisible);
     };
+
+    const postRequest = async () => {
+        try {
+            const response = await fetch('http://127.0.0.1:3000/api/workouts/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: {
+                    ":D":":)"
+                },
+            });
+            return await response.json();
+
+        } catch (error) {
+            console.error('Error posting data:', error);
+            // Handle the error appropriately or rethrow it if necessary
+            throw error;
+        }
+    }
 
     const handlePressEndWorkout = () => {  // handle press of end workout button
         if (exerciseLog.length === 0) {
@@ -40,6 +60,12 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
             id: currentWorkoutID,
             exercises: exerciseLog,
         };
+
+        // TODO: HERE SHOULD BE A POST REQUEST INSTEAD OF AN UPDATE TO THE STATE
+        // * STEP 1: simply make sure POST request is received on backend when hitting this button
+
+        postRequest();
+
         setCurrentWorkoutID(prevID => prevID + 1);
         setWorkoutLog([newWorkout, ...workoutLog]);
         navigation.navigate("Home");
