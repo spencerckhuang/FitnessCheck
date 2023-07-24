@@ -29,16 +29,14 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
         setIsVisible(!isVisible);
     };
 
-    const postRequest = async () => {
+    const postRequest = async (bodyJSON) => {
         try {
             const response = await fetch('http://127.0.0.1:3000/api/workouts/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: {
-                    ":D":":)"
-                },
+                body: bodyJSON,
             });
             return await response.json();
 
@@ -62,9 +60,31 @@ const WorkoutTracker = ({ navigation, GlobalState }) => {
         };
 
         // TODO: HERE SHOULD BE A POST REQUEST INSTEAD OF AN UPDATE TO THE STATE
-        // * STEP 1: simply make sure POST request is received on backend when hitting this button
 
-        postRequest();
+        const exerciseLogJSON = []
+
+        for (let i = 0; i < exerciseLog.length; i++) {
+            const { id, exerciseName, weight, units, sets, reps } = exerciseLog[i];
+            exerciseLogJSON.push({
+                "id": id,
+                "exerciseName": exerciseName,
+                "weight": weight,
+                "units": units,
+                "sets": sets,
+                "reps": reps
+            });
+        }
+
+
+        const body = {
+            "id":newWorkout.id,
+            "date":newWorkout.date,
+            "exerciseLog": exerciseLogJSON
+        };
+        
+        const bodyJSON = JSON.stringify(body);
+        console.log(bodyJSON);
+        postRequest(bodyJSON);
 
         setCurrentWorkoutID(prevID => prevID + 1);
         setWorkoutLog([newWorkout, ...workoutLog]);
