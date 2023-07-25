@@ -1,6 +1,6 @@
 # FitnessCheck
-Welcome to my FitnessCheck personal project! This is my first attempt at developing a mobile app. Through development, I aim to 
-develop my JavaScript, React, and general software development skills. 
+Welcome to my FitnessCheck personal project! This is my first attempt at developing a full-stack mobile app. Through development, I aim to 
+develop my ReactJS, Django REST framework, and general software development skills. 
 
 Fitness tracker apps are not a new phenomena, but I decided to keep the aim of my app simple as to not overwhelm myself while 
 learning JS/React. The purpose of this app is to allow users to keep precise records of the exercises they perform in the gym, 
@@ -30,11 +30,14 @@ Misc:
 * Maybe even types of types of days??? (i.e. hypertrophy, power, deload)
 * Hook up workout data to cloud-based database????
 
-
 Backend:
-* I want to attach a Django backend to this app
+* I want to attach a Django backend to this app (WIP rn)
 
 ## Most recent developments
+
+### 7/25:
+Slight hiatus since I was taking a class and working on other stuff but a lot has happened since the last update.
+* Added a backend using a Django REST API. First time writing an API. Really stuck right now just trying to pass my data in correctly
 
 ### 5/30:
 Working on the logging of individual day-by-day workouts (i.e. seeing a list of all your past workout sessions: the one a week ago, the one yesterday, the one you just finished today)
