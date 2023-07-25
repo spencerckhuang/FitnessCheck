@@ -18,6 +18,7 @@ class Workout(models.Model):
 
 class Exercise(models.Model):
     workout = models.ForeignKey(Workout, related_name='exerciseLog', on_delete=models.CASCADE)
+    
     exerciseName = models.CharField(max_length=200)
     weight = models.FloatField()
     units = models.CharField(max_length=10)
