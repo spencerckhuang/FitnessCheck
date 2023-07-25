@@ -33,16 +33,21 @@ class FitnessCheckAPI(APIView):
         
         
         print("Made it here! (2)")
+
+        print(f"workoutId: {workout_instance.workoutId}")
+        print(f"exercises: {exercises_data}")
         
         # Create associated Exercise instances
         for exercise_data in exercises_data:
-            exercise_data['workout'] = workout_instance.workoutId
             exercise_serializer = ExerciseSerializer(data=exercise_data)
 
             print("made it here! (2.5)")
-            
+
             if (exercise_serializer.is_valid()):
+                print("made it here! (2.6)")
+                exercise_serializer.save(workout=workout_instance)
                 exercise_serializer.save()
+                print("made it here! (2.7)")
             else:
                 print ("BAD EXERCISE REQUEST")
                 return Response(exercise_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
